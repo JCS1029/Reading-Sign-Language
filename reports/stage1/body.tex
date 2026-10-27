@@ -1,0 +1,102 @@
+\section{Self-check}
+
+\subsection{Weight vector of one class as a 28$\times$28 image}
+
+\subsection{Why a 2-pixel shift is a very different input}
+
+\subsection{Random validation split versus the official test set}
+
+\section{Data exploration}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{stage1/class_hist.pdf}
+  \caption{Number of images per letter in the training and test sets.}
+  \label{fig:s1-class-hist}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=0.9\textheight]{stage1/examples_grid.pdf}
+  \caption{Five training examples of each letter.}
+  \label{fig:s1-examples}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{stage1/dup_distance_hist.pdf}
+    \caption{Nearest-neighbour distances between training images.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{stage1/dup_group_example.pdf}
+    \caption{One group of near-duplicate training images.}
+  \end{subfigure}
+  \caption{Evidence for near-duplicate images in the training set and the resulting group-aware validation split.}
+  \label{fig:s1-duplicates}
+\end{figure}
+
+\section{Results}
+
+\begin{table}[H]
+  \centering
+  \caption{Validation accuracy for several values of $C$ on the group-aware split and on a plain random split, with training time.}
+  \label{tab:s1-c-sweep}
+  \input{../tables/s1_C_sweep.tex}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{stage1/c_sweep.pdf}
+  \caption{Validation accuracy as a function of $C$ for the two splits.}
+  \label{fig:s1-c-sweep}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Accuracy and macro-F1 of the chosen model on the validation splits and on the official test set.}
+  \label{tab:s1-test}
+  \input{../tables/s1_test.tex}
+\end{table}
+
+\section{Weight images}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{stage1/weights.pdf}
+  \caption{Top row: weight vectors of five letters reshaped to $28\times28$ (red positive, blue negative). Bottom row: mean training image of the same letters.}
+  \label{fig:s1-weights}
+\end{figure}
+
+\section{Confusions}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{stage1/confusion.pdf}
+  \caption{Confusion matrix on the test set: counts (left) and row-normalised (right).}
+  \label{fig:s1-confusion}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{The five most confused letter pairs on the test set.}
+  \label{tab:s1-confused-pairs}
+  \input{../tables/s1_confused_pairs.tex}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{stage1/confused_pairs.pdf}
+  \caption{For each confused pair: test images of the true letter that were misclassified (left four) and training images of the predicted letter (right four).}
+  \label{fig:s1-confused-pairs}
+\end{figure}
+
+\section{Prediction vs.\ result}
+
+\subsection{Question 1: how well does it do?}
+
+\subsection{Question 2: what does it look at?}
+
+\subsection{Question 3: which letters are confused?}
+
+\section{AI-use note}

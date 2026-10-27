@@ -1,0 +1,38 @@
+# Data (download from Kaggle, see README)
+data/raw/
+docs/Dataset/*.csv
+docs/Dataset/*.zip
+docs/Dataset/sign_mnist_train/
+docs/Dataset/sign_mnist_test/
+
+# Trained models
+models/
+
+# Python
+.venv/
+.venv_check/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local notes
+# planning/
+# AGENTS.md

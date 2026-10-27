@@ -1,0 +1,86 @@
+\section{Self-check}
+
+\subsection{Why PCA must be fitted on the training images only}
+
+\subsection{Why a linear projection cannot increase linear separability, and how it can still help}
+
+\subsection{What the first eigen-hand should look like}
+
+\section{Components}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{stage2/explained_variance.pdf}
+  \caption{Explained variance ratio of the first 50 components (left) and cumulative explained variance up to 500 components (right).}
+  \label{fig:s2-evr}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{stage2/eigenhands.pdf}
+  \caption{Mean training image and the first ten principal components displayed as $28\times28$ images.}
+  \label{fig:s2-eigenhands}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{stage2/reconstructions.pdf}
+  \caption{Four validation images (left column) reconstructed from 10, 50 and 150 components.}
+  \label{fig:s2-reconstructions}
+\end{figure}
+
+\section{Number of components}
+
+\begin{table}[H]
+  \centering
+  \caption{Accuracy and training time for raw pixels and for different numbers of principal components.}
+  \label{tab:s2-k-sweep}
+  \input{../tables/s2_k_sweep.tex}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{stage2/k_sweep_acc.pdf}
+    \caption{Validation accuracy.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{stage2/k_sweep_time.pdf}
+    \caption{Training time.}
+  \end{subfigure}
+  \caption{Validation accuracy and training time of the softmax classifier as a function of the number of components $k$. Dashed line: raw pixels.}
+  \label{fig:s2-k-sweep}
+\end{figure}
+
+\section{Noise}
+
+\begin{table}[H]
+  \centering
+  \caption{Test accuracy on noisy test images for the raw-pixel classifier and the PCA classifier.}
+  \label{tab:s2-noise}
+  \input{../tables/s2_noise.tex}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.58\textwidth}
+    \includegraphics[width=\textwidth]{stage2/noise_examples.pdf}
+    \caption{A test image with increasing noise (top) and its PCA reconstruction (bottom).}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{stage2/noise_acc.pdf}
+    \caption{Test accuracy against noise level.}
+  \end{subfigure}
+  \caption{Effect of Gaussian noise on the test images.}
+  \label{fig:s2-noise}
+\end{figure}
+
+\section{Prediction vs.\ result}
+
+\subsection{Question 1: what do the components look like?}
+
+\subsection{Question 2: how many components does the classifier need?}
+
+\subsection{Question 3: does PCA really remove noise?}
+
+\section{AI-use note}

@@ -1,0 +1,99 @@
+\section{Self-check}
+
+\subsection{Parameters of a convolutional layer versus a fully connected layer}
+
+\subsection{Why convolution and pooling are less sensitive to a small shift}
+
+\subsection{Recognising overfitting from the training and validation curves}
+
+\section{Training}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{stage3/curves.pdf}
+  \caption{Training and validation loss (left) and accuracy (right) per epoch. The vertical line marks the epoch whose weights were kept.}
+  \label{fig:s3-curves}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Training summary of the CNN.}
+  \label{tab:s3-training}
+  \input{../tables/s3_training.tex}
+\end{table}
+
+\section{Comparison}
+
+\begin{table}[H]
+  \centering
+  \caption{Test accuracy of the three models: softmax on raw pixels, softmax on PCA features, and the CNN.}
+  \label{tab:s3-comparison}
+  \input{../tables/s3_comparison.tex}
+\end{table}
+
+\section{Learned feature space}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{stage3/feature_space_raw.pdf}
+    \caption{Raw pixels.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{stage3/feature_space_cnn.pdf}
+    \caption{CNN features before the softmax layer.}
+  \end{subfigure}
+  \caption{Validation images projected to two dimensions with PCA and coloured by letter.}
+  \label{fig:s3-feature-space}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Silhouette scores of the letter clusters in raw-pixel space and in the learned feature space.}
+  \label{tab:s3-silhouette}
+  \input{../tables/s3_silhouette.tex}
+\end{table}
+
+\section{Robustness}
+
+\begin{table}[H]
+  \centering
+  \caption{Test accuracy of the three models on unshifted images and on images shifted by 1, 2 and 3 pixels (mean over the four directions).}
+  \label{tab:s3-shift}
+  \input{../tables/s3_shift.tex}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.58\textwidth}
+    \includegraphics[width=\textwidth]{stage3/shift_examples.pdf}
+    \caption{A test image shifted by 0, 1, 2 and 3 pixels.}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{stage3/shift_acc.pdf}
+    \caption{Test accuracy against shift size.}
+  \end{subfigure}
+  \caption{Effect of shifting the test images.}
+  \label{fig:s3-shift}
+\end{figure}
+
+\section{Prediction vs.\ result}
+
+\subsection{Question 1: do learned features do better?}
+
+\subsection{Question 2: what did it learn?}
+
+\subsection{Question 3: are learned features more robust?}
+
+\section{AI-use note}
+
+\appendix
+
+\section{Shift results per direction}
+
+\begin{table}[H]
+  \centering
+  \caption{Test accuracy for each shift direction separately.}
+  \label{tab:s3-shift-directions}
+  \input{../tables/s3_shift_directions.tex}
+\end{table}
